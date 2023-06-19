@@ -1,4 +1,4 @@
-# fullstack_part_0
+# fullstack
 
 Full Stack Web Development, Open Uni: Full Stack Web Development
 
