@@ -33,7 +33,7 @@ const Total = (props) => {
 
 const App = () => {
 
-	const data = {
+	const course = {
 		title: 'Half Stack application development',
 		parts: [
 			{
@@ -53,9 +53,9 @@ const App = () => {
 
 	return (
 		<div>
-			<Header title = {data.title} />
-			<Content parts = {data.parts} />
-			<Total parts = {data.parts} />
+			<Header title = {course.title} />
+			<Content parts = {course.parts} />
+			<Total parts = {course.parts} />
 		</div>
 	)
 }
