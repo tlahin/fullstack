@@ -2,23 +2,26 @@ import { useState } from 'react'
 
 const StatisticLine = (props) => {
 	return (
-		<p>
-			{props.text} {props.value}
-		</p>
+		<tr>
+			<td> {props.text} </td>
+			<td> {props.value} </td>
+		</tr>
 	)
 }
 
 const Stats = (props) => {
 	if (props.data.stats[3].value) {
 		return (
-			<div>
-				<StatisticLine text = {props.data.stats[0].text} value = {props.data.stats[0].value} />
-				<StatisticLine text = {props.data.stats[1].text} value = {props.data.stats[1].value} />
-				<StatisticLine text = {props.data.stats[2].text} value = {props.data.stats[2].value} />
-				<StatisticLine text = {props.data.stats[3].text} value = {props.data.stats[3].value} />
-				<StatisticLine text = {props.data.stats[4].text} value = {props.data.stats[4].value} />
-				<StatisticLine text = {props.data.stats[5].text} value = {props.data.stats[5].value} />
-			</div>
+			<table>
+				<tbody>
+					<StatisticLine text = {props.data.stats[0].text} value = {props.data.stats[0].value} />
+					<StatisticLine text = {props.data.stats[1].text} value = {props.data.stats[1].value} />
+					<StatisticLine text = {props.data.stats[2].text} value = {props.data.stats[2].value} />
+					<StatisticLine text = {props.data.stats[3].text} value = {props.data.stats[3].value} />
+					<StatisticLine text = {props.data.stats[4].text} value = {props.data.stats[4].value} />
+					<StatisticLine text = {props.data.stats[5].text} value = {props.data.stats[5].value} />
+				</tbody>
+			</table>
 		)
 	}
 	return (
