@@ -12,21 +12,42 @@ const App = () => {
     'The only way to go fast, is to go well.'
   ]
 
-  const GetRandomIndex = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1));
+  function GetRandomInt(max) {
+    return (Math.floor(Math.random() * Math.floor(max)));
   };
 
-  const handleClick = () => {
-    SetNum(GetRandomIndex(0, anecdotes.length));
-  };
+  function FindMostVoted() {
+    const arr = Object.values({...points});
+    const biggest = Math.max(...arr);
+    return (Object.keys(points).find(key => points[key] === biggest));
+  }
 
-  const [selected, SetNum] = useState(0)
+  const SetVote = () => {
+    SetMostVoted(FindMostVoted());
+    const PointsCopy = {...points};
+    PointsCopy[selected] += 1;
+    SetPoints(PointsCopy);
+  }
+
+  const [selected, SetSelected] = useState(0);
+  const [points, SetPoints] = useState({0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0});
+  const [MostVoted, SetMostVoted] = useState(0);
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       {anecdotes[selected]}
+      <br></br>
+      has {points[selected]} votes.
       <div>
-        <button onClick = {handleClick}>Next anecdote</button>
+        <button onClick = {SetVote}>Vote</button>
+        <button onClick = {() => SetSelected(GetRandomInt(anecdotes.length))}>Next anecdote</button>
+      </div>
+      <div>
+        <h2>anecdote with most votes</h2>
+        {anecdotes[MostVoted]}
+        <br></br>
+        has {points[MostVoted]} votes.
       </div>
     </div>
   )
